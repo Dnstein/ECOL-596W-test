@@ -1,0 +1,23 @@
+---
+title: "test"
+format: html
+---
+
+## Quarto
+
+
+```{r}
+library(dplyr)
+library(dslabs)
+```
+
+Using the mutate function to add a column  
+
+```{r}
+murders <- mutate(murders, rate = total/population/100000) 
+murders <- mutate(murders, rank = rank(-rate))
+select(murders, rank, rate, state)
+filter(murders, rank %in% c(1:5))
+filter(murders, state != "Florida")
+```
+
